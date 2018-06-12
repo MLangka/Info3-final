@@ -1,0 +1,69 @@
+<%= form_for(sandwich) do |f| %>
+  <% if sandwich.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(sandwich.errors.count, "error") %> prohibited this sandwich from being saved:</h2>
+
+      <ul>
+      <% sandwich.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="inputgroups">
+    <div class="field">
+      <strong>Breadtypes:</strong><br>
+      <table>
+  <thead>
+    <tr>
+      <th>Bread</th>
+      <th>Image</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+      <tbody>
+      
+        <% Breadtype.all.each do |b| %>
+        <tr class="<%= cycle('tr_odd', 'tr_even') %>">
+        <td><%= f.radio_button :breadtype_id, b.id %></td>
+        <td><%= f.label :breadtype_id, b.name %></td>
+        <td><%= image_tag b.image.url(:thumb) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+    </table>
+
+    <br>
+
+    <div class="field">
+    <strong>Toppings:</strong><br>    
+    <table>
+      <thead>
+        <tr>
+          <th><%= hidden_field_tag "sandwich[ingredient_ids][]", nil %></th>
+          <th>Topping</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+  
+      
+      <tbody>
+        <% Ingredient.all.each do |ingredient| %>
+        <tr class="<%= cycle('tr_odd', 'tr_even') %>">
+          <td><%= check_box_tag "sandwich[ingredient_ids][]", ingredient.id, 
+            @sandwich.ingredient_ids.include?(ingredient.id), id: dom_id(ingredient) %></td>
+          <td><%= label_tag dom_id(ingredient), ingredient.name %></td>
+          <td><%= image_tag ingredient.image.url(:thumb) %></td>
+        </tr>
+        <% end %>
+        </tbody>
+        </table>
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

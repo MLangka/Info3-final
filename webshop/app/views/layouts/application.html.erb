@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hoagie To-Go Webshop</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    '/assets/application.css', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'default', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+  	<div id="wrapper">
+
+  	  <header>
+
+  	  	<%= link_to(
+  	  		image_tag('/assets/logo-100.png'),
+  	  	  url_for({:controller => 'pages', :action => 'home'}),
+  	  	  :class => 'websiteLogo') %>
+
+  	  	<%= link_to 'Hoagie To-Go Webshop', {:controller => 'pages', :action => 'home'}, 
+  	  	  {:class => 'websiteTitle'} %>
+
+  	  </header>
+  	  
+  	  <nav id="horizontalNav">
+  	    <p>
+  	  	  <%= link_to 'Home', {:controller => 'pages', :action => 'home'} %>
+  	  	  <%= link_to 'Order Hoagie', {:controller => 'sandwiches', :action => 'index'} %>
+  	  	  <%= link_to 'Guestbook', {:controller => 'comments', :action => 'index'} %>
+  	  	  <%= link_to 'Admin', {:controller => 'pages', :action => 'admin'} %>
+  	  	  <%= link_to 'About', {:controller => 'pages', :action => 'about'} %>
+  	    </p>
+  	  </nav>
+
+  	  <main id="content">
+        
+        <%= yield %>
+
+      </main>
+
+  	</div>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+a:hover {
+	color: #76B900;
+	background-color: #FFF;
+}
+
+body {
+	background: #76B900;
+}
+
+div#wrapper{
+	margin: auto;
+	background: #FFF;
+	width: 1000px;
+	height: min-height;
+}
+
+header {
+	display: block;
+	padding: 10px 10px 30px 10px;
+}
+
+.websiteLogo {
+	float: left;
+	text-decoration: none;
+}
+
+.websiteTitle {
+	font-size: 50px;
+	text-decoration: none;
+	font-weight: bold;
+	display: inline;
+	line-height: 90px;
+	padding-left: 20px;
+}
+
+#horizontalNav {
+	display: block;
+	padding: 10px 20px 10px 10px;
+	background: #AFAFAF;
+}
+
+#horizontalNav a {
+	font-size: 16px;
+	text-decoration: none;
+	margin-left: 40px;
+	font-weight: bold;
+	color: #FFF;
+}
+
+#horizontalNav a:hover {
+	color: #76B900;
+	background-color: #AFAFAF;
+}
+
+main {
+	padding: 10px 20px 20px 20px;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+thead {
+	text-align: left;
+	background: #76B900;
+	color: #FFF;
+}
+
+thead th {
+	padding: 10px;
+}
+
+table tr td {
+	padding: 10px;
+}
+
+.tr_even {
+	background: #CCC;
+}
+
+.tr_odd {
+	background: #EEE;
+}

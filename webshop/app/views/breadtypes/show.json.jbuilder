@@ -1,0 +1,1 @@
+json.partial! "breadtypes/breadtype", breadtype: @breadtype

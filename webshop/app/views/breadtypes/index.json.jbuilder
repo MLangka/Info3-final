@@ -1,0 +1,1 @@
+json.array! @breadtypes, partial: 'breadtypes/breadtype', as: :breadtype

@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bread type:</strong>
+    <%= @sandwich.breadtype.name %><br>
+</p>
+
+<p>
+  <strong>Toppings:</strong><br>
+  <% @sandwich.ingredients.each do |ingredient| %>
+    <%= ingredient.name %><br>
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_sandwich_path(@sandwich) %> |
+<%= link_to 'Back', sandwiches_path %>

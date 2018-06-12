@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Breadtypes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @breadtypes.each do |breadtype| %>
+      <tr class="<%= cycle('tr_odd', 'tr_even') %>">
+        <td><%= breadtype.name %></td>
+        <td><%= breadtype.description %></td>
+        <td><%= image_tag breadtype.image.url(:thumb) %></td>
+        <td><%= link_to 'Show', breadtype %></td>
+        <td><%= link_to 'Edit', edit_breadtype_path(breadtype) %></td>
+        <td><%= link_to 'Destroy', breadtype, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Breadtype', new_breadtype_path %>

@@ -1,0 +1,32 @@
+<%= form_for @breadtype, html: { multipart: true } do |f| %>
+  <% if breadtype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(breadtype.errors.count, "error") %> prohibited this breadtype from being saved:</h2>
+
+      <ul>
+      <% breadtype.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label :image %>
+    <%= f.file_field :image %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

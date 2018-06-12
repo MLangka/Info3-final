@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Comments</h1>
+
+<br>
+
+<%= link_to 'New Comment', new_comment_path %>
+
+<br><br>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Post</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.reverse_each do |comment| %>
+      <tr class="<%= cycle('tr_odd', 'tr_even') %>">
+        <td><%= comment.name %></td>
+        <td><%= comment.post %></td>
+        <td><%= image_tag comment.image.url(:thumb)%></td>
+        <td><%= link_to 'Show', comment %></td>
+        <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+        <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

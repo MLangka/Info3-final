@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @breadtype.name %>
+</p>
+
+<p>
+<%= image_tag @breadtype.image.url (:medium)%>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @breadtype.description %>
+</p>
+
+<%= link_to 'Edit', edit_breadtype_path(@breadtype) %> |
+<%= link_to 'Back', breadtypes_path %>
